@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,12 +19,13 @@ import com.example.xyzreader.model.Article;
 
 public class ArticleDetailFragment extends Fragment {
 
-    ImageView article_photo;
+   /* ImageView article_photo;
     TextView article_title;
     TextView article_body;
     String title;
     String body;
     String imageurl;
+    TextView article_by;
 
     public ArticleDetailFragment(Article article) {
         title = article.getTitle();
@@ -33,6 +35,7 @@ public class ArticleDetailFragment extends Fragment {
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
         super.onActivityCreated(savedInstanceState);
     }
 
@@ -40,23 +43,24 @@ public class ArticleDetailFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        getActivity().startPostponedEnterTransition();
         View view = inflater.inflate(R.layout.fragment_article_detail,container,false);
-
-
         article_title = view.findViewById(R.id.article_title);
         article_body = view.findViewById(R.id.article_body);
         article_photo = view.findViewById(R.id.photo);
         article_title.setText(title);
-        getActivity().startPostponedEnterTransition();
+
         Glide.with(view).asBitmap().dontAnimate().load(imageurl).into(article_photo);
         article_body.setText(body);
 
         return view;
 
-    }
+    }*/
 }

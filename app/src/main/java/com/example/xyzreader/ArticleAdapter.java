@@ -3,7 +3,12 @@ package com.example.xyzreader;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +30,7 @@ class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.MyViewHolder> {
     private boolean on_attach = true;
 
 
+    Article article;
     ArrayList<Article> articleArrayList;
     ArticleClickListener mItemClickListener;
 
@@ -114,7 +120,21 @@ class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.MyViewHolder> {
             thumbnailView = itemView.findViewById(R.id.thumbnail);
             titleView = (TextView) itemView.findViewById(R.id.article_title);
             subtitleView = (TextView) itemView.findViewById(R.id.article_subtitle);
-            itemView.setOnClickListener(this);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(itemView.getContext(),ArticleDetailActivity.class);
+                    article = articleArrayList.get(getAdapterPosition());
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("article",article);
+                    Pair[] pair = new Pair[2];
+                    pair[0] = new Pair<View,String>(view.findViewById(R.id.thumbnail),"shared_image");
+                    pair[1] = new Pair<View,String>(view.findViewById(R.id.article_title),"shared_title");
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((Activity) view.getContext(),pair);
+                    intent.putExtras(bundle);
+                    view.getContext().startActivity(intent,options.toBundle());
+                }
+            });
 
         }
 

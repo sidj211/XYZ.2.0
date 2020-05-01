@@ -80,13 +80,6 @@ public class MainActivity extends AppCompatActivity implements ArticleAdapter.Ar
     @Override
     public void onArticleClick(Article article) {
 
-        Intent intent = new Intent(this,ArticleDetailActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putParcelable("article",article);
-        Pair[] pair = new Pair[1];
-        pair[0] = new Pair<View,String>(findViewById(R.id.thumbnail),"shared_image");
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,pair);
-        intent.putExtras(bundle);
-        startActivity(intent,options.toBundle());
+
     }
 }
