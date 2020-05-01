@@ -49,8 +49,9 @@ public class ArticleDetailActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        getWindow().setStatusBarColor(Color.TRANSPARENT);
 
+        getWindow().setStatusBarColor(Color.TRANSPARENT);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         getWindow().requestFeature((Window.FEATURE_CONTENT_TRANSITIONS));
 
 
