@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="photo_placeholder">#ccc</color>
+
+    <color name="theme_primary">#04561A</color>
+    <color name="theme_primary_dark">#04561A</color>
+    <color name="theme_accent">#04561A</color>
+    <color name="ltgray">#ffe0e0e0</color>
+
+    <!--    New Colors -->
+    <color name="xyzreader">#f44336</color>
+    <color name="statusbarcolor">#e53935</color>
+    <color name="listitemtextcolor">#FF9800</color>
+    <color name="listitemtitlename">#000000</color>
+</resources>
